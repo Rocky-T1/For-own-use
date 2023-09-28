@@ -4,7 +4,7 @@
 
 [Script]
 # 京东比价
-http-response ^https?://api\.m\.jd\.com/(client\.action|api)\?functionId=(wareBusiness|serverConfig|basicConfig|lite_wareBusiness|pingou_item) requires-body=1,script-path=https://raw.githubusercontent.com/Tartarus2014/Script/master/jd_price_lite.js, tag=京东比价
+http-response ^https?://api\.m\.jd\.com/(client\.action|api)\?functionId=(wareBusiness|serverConfig|basicConfig|lite_wareBusiness|pingou_item) requires-body=1, script-path=https://raw.githubusercontent.com/Tartarus2014/Script/master/jdjf_price.js, tag=京东比价
 
 # Emby Unlock
 http-response ^https?:\/\/mb3admin.com\/admin\/service\/registration\/validateDevice requires-body=1,max-size=0, script-path=https://raw.githubusercontent.com/Tartarus2014/Script/master/Emby.js, tag=EMBY解锁
@@ -15,16 +15,40 @@ http-request ^https?:\/\/www\.zhihu\.com header-replace-regex User-Agent .+iPhon
 # 百度（全站替换为手机百度 Quark 的 User-Agent）
 http-request ^https?:\/\/(?!d\.pcs).*(?<!map)\.baidu\.com header-replace-regex User-Agent .+iPhone.+ "Mozilla/5.0 (iPhone; CPU iPhone OS 13_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.1.1 Mobile/15E148 Safari/16C50 Quark/604.1 T7/10.3 SearchCraft/2.6.3 (Baidu; P1 8.0.0)"
 
+# 百度网盘 解除在线视频倍率/清晰度
+http-response https:\/\/pan\.baidu\.com\/rest\/2\.0\/membership\/user requires-body=1, script-path=https://raw.githubusercontent.com/NobyDa/Script/master/Surge/JS/BaiduCloud.js, tag=百度云加速
+
+# 百度文库 解锁VIP文档阅读权限
+http-response ^https:\/\/appwk\.baidu\.com\/naapi\/user\/getinfo requires-body=1, script-path=https://github.com/deezertidal/private/raw/master/js-backup/Crack/baidulibrary.js, tag=百度文库解锁
+
 # Netflix评分+双字幕
 http-request ^https?://ios\.prod\.ftl\.netflix\.com/iosui/user/.+path=%5B%22videos%22%2C%\d+%22%2C%22summary%22%5D script-path=https://raw.githubusercontent.com/yichahucha/surge/master/nf_rating.js, requires-body=true, timeout=10, tag=奈飞评分
 http-response ^https?://ios\.prod\.ftl\.netflix\.com/iosui/user/.+path=%5B%22videos%22%2C%\d+%22%2C%22summary%22%5D requires-body=1,script-path=https://raw.githubusercontent.com/yichahucha/surge/master/nf_rating.js, requires-body=true, timeout=10, tag=奈飞评分
 http-response ^https?://ios\.prod\.ftl\.netflix\.com/iosui/warmer/.+type=show-ath script-path=https://raw.githubusercontent.com/yichahucha/surge/master/nf_rating_season.js, requires-body=true, timeout=10, tag=奈飞评分
-http-response ^http.+(media.(dss|star)ott|manifests.v2.api.hbo|hbomaxcdn|nflxvideo|cbs(aa|i)video|cloudfront|akamaihd|avi-cdn|huluim|youtube).(com|net)\/(.+\.vtt($|\?m=\d+)|.+-all-.+\.m3u8.*|hls\.m3u8.+|\?o=\d+&v=\d+&e=.+|\w+\/2\$.+\/[a-zA-Z0-9-]+\.m3u8|api\/timedtext.+) url script-response-body Dualsub.js
-http-request ^http.+(setting|general).(media.dssott|hbomaxcdn|nflxvideo|youtube|cbsivideo|cloudfront|huluim).(com|net)\/\?action=(g|s)et url script-analyze-echo-response Dualsub.js
+http-response ^http.+(media.(dss|star)ott|manifests.v2.api.hbo|hbomaxcdn|nflxvideo|cbs(aa|i)video|cloudfront|akamaihd|avi-cdn|huluim|youtube).(com|net)\/(.+\.vtt($|\?m=\d+)|.+-all-.+\.m3u8.*|hls\.m3u8.+|\?o=\d+&v=\d+&e=.+|\w+\/2\$.+\/[a-zA-Z0-9-]+\.m3u8|api\/timedtext.+) requires-body=1,timeout=10,script-path=https://raw.githubusercontent.com/Neurogram-R/Surge/master/Dualsub.js, tag=双字幕
+http-request ^http.+(setting|general).(media.dssott|hbomaxcdn|nflxvideo|youtube|cbsivideo|cloudfront|huluim).(com|net)\/\?action=(g|s)et requires-body=1,script-path=https://raw.githubusercontent.com/Neurogram-R/Surge/master/Dualsub.js, tag=双字幕
 
+# PhotoshopExpress
+http-response ^https:\/\/lcs-mobile-cops\.adobe\.io\/mobile_profile requires-body=1, script-path=https://raw.githubusercontent.com/litieyin/AD_VIP/main/Script/photoshop.js, tag=PhotoshopExpress解锁
 
+# VSCO & 1Blocker & HTTPBot
+http-request ^https?:\/\/api\.revenuecat\.com\/v\d\/subscribers\/ script-path=https://raw.githubusercontent.com/NobyDa/Script/master/QuantumultX/File/vsco.js, tag=VSCO & 1Blocker & HTTPBot
+http-response ^https?:\/\/api\.revenuecat\.com\/v\d\/subscribers\/ requires-body=1, script-path=https://raw.githubusercontent.com/NobyDa/Script/master/QuantumultX/File/vsco.js, tag=VSCO & 1Blocker & HTTPBot
 
+# WPS 解锁VIP
+http-response ^https:\/\/(vas|account)\.wps\.cn\/(query\/api\/v\d\/list_purchase_info|api\/users\/\d+\/overview) script-path=https://raw.githubusercontent.com/510004015/Quantumult_X/Remote/Premium/WPSOffice.js, requires-body=true, timeout=10, tag=WPS会员
 
+# 扫描全能王 pro
+http-response https:\/\/(api|api-cs)\.intsig\.net\/purchase\/cs\/query_property\? requires-body=1, script-path=https://raw.githubusercontent.com/NobyDa/Script/master/Surge/JS/CamScanner.js, tag=扫描全能王
+
+# 剪映解锁会员
+http-request ^https?:\/\/commerce-api-.*\.faceu\.mobi\/commerce\/v1\/(subscription\/user_info|purchase\/draft_unlock|effect\/check_effects) script-path=https://raw.githubusercontent.com/yqc007/QuantumultX/master/VideoFusionVipCrack.js, timeout=10 ,tag=剪映解锁会员
+
+# ChatGPT 解锁 Plus 订阅
+http-response ^https?:\/\/ios\.chat\.openai\.com\/backend-api\/(accounts\/check\/|models) requires-body=1, script-path=https://raw.githubusercontent.com/yqc007/QuantumultX/master/ChatGPTPlusCrack.js, tag=ChatGPT解锁
+
+# 迅雷会员解锁
+http-response https://xluser-ssl.xunlei.com/xluser.core.login/v3/getuserinfo requires-body=1,max-size=0, script-path=https://raw.githubusercontent.com/Marol62926/MarScrpt/main/xunlei.js, tag=迅雷会员解锁
 
 [MITM]
-hostname = api.m.jd.com, n.m.jd.com, wqs.jd.com, lite-in.m.jd.com, mb3admin.com, *.baidu.com, www.zhihu.com, 
+hostname = api.m.jd.com, ios.prod.ftl.netflix.com, api.revenuecat.com, mb3admin.com, *.baidu.com, www.zhihu.com, appwk.baidu.com, vas.wps.cn, account.wps.cn, ap*.intsig.net, pan.baidu.com, api*.faceu.mobi, api3-lq.faceu.mobi, commerce-api-lf.faceu.mobi, commerce-api-lq.faceu.mobi, lv-api-lq.ulikecam.com, lv-api-hl.ulikecam.com, lcs-mobile-cops.adobe.io, *.media.dssott.com, *.media.starott.com, *.api.hbo.com, *.hbomaxcdn.com, *.huluim.com, *.nflxvideo.net, *.cbsaavideo.com, *.cbsivideo.com, *.cloudfront.net, *.akamaihd.net, *.avi-cdn.net, *.youtube.com, ios.chat.openai.com, xluser-ssl.xunlei.com
