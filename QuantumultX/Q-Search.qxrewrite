@@ -31,8 +31,14 @@
 # wb (微博)
 ^https:\/\/m\.baidu\.com/s\?from=(.+)&word=wb\+([^&]+) url 302 https://s.weibo.com/weibo/$2
 
+# tw (Twitter)
+^https:\/\/m\.baidu\.com/s\?from=(.+)&word=tw\+([^&]+) url 302  https://twitter.com/search?q=$2
+
 # wx (微信)
 ^https:\/\/m\.baidu\.com/s\?from=(.+)&word=wx\+([^&]+) url 302 https://weixin.sogou.com/weixinwap?query=$2
+
+# zh: 知乎
+ ^https:\/\/m\.baidu\.com/s\?from=(.+)&word=zh\+([^&]+) url 302 https://www.zhihu.com/search?type=content&q=$2
 
 # jd (京东)
 ^https:\/\/m\.baidu\.com/s\?from=(.+)&word=jd\+([^&]+) url 302 https://so.m.jd.com/ware/search.action?keyword=$2
@@ -42,6 +48,9 @@
 
 # tm (天猫)
 ^https:\/\/m\.baidu\.com/s\?from=(.+)&word=tm\+([^&]+) url 302 https://s.m.tmall.com/m/search.htm?q=$2
+
+# bli (哔哩哔哩) 
+^https:\/\/m\.baidu\.com/s\?from=(.+)&word=bli\+([^&]+) url 302 https://m.bilibili.com/search?keyword=$2
 
 # ytb (YouTube)
 ^https:\/\/m\.baidu\.com/s\?from=(.+)&word=ytb\+([^&]+) url 302 https://www.youtube.com/results?search_query=$2
