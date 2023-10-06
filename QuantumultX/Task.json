@@ -20,6 +20,5 @@
     "50 23 * * THU https://raw.githubusercontent.com/Peng-YM/QuanX/master/Tasks/epic.js, tag=Epic周免, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/epic.png",
     "0 8-23/3 * * * https://raw.githubusercontent.com/Peng-YM/QuanX/master/Tasks/caiyun.js, tag=彩云天气, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/caiyun.png",
     "30 9 * * * https://raw.githubusercontent.com/fmz200/wool_scripts/main/QuantumultX/scripts/oil_price.js, tag=今日油价, img-url=https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/apps/oil.png",
-    "0 12 * * * https://github.com/congcong0806/surge-list/raw/master/Script/daysmatter.js, tag=倒数日, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/daysmatter.png",
   ]
 }
